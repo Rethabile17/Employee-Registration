@@ -1,63 +1,45 @@
 import React from "react";
 import { useState } from "react";
 
-function add (){
+function Add (props){
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [age,setAge] = useState("");
+    const [email, setEmail] = useState("");
+    const [PhoneNumber,setPhoneNumber] =useState("")
+    const [position,setPosition] = useState("");
+    const [id,setId] = useState("")
+   
+
+
+    const add = () => {
+        props.add(firstName, lastName, age, email,position, PhoneNumber);
+        setFirstName("");
+        setLastName("");
+        setAge("");
+        setEmail("");
+        setPhoneNumber("")
+        setPosition("");
+        setId("")
+      
+      };
+
+
     return(
         <div className="Add employee">
-            <h1 class="head">employee Registration from</h1>
-            <p class="p">Please fill out this form with the required information</p>
 
-            <fieldset class="title">
-
-               <label for="name"> Name<input id="name"  type="text" placeholder="Enter detail here" /></label>
-               <button type="button">Delete</button>
-               <button>Update</button>
-
-            <label for="last-name">Last name <input id="last-name" type="text" placeholder="Enter detail here"/></label>
-            <button type="button">Delete</button>
-            <button>Update</button>
-
-            <label for="age">Age<input id="age" type="text" placeholder="Enter detail here"/>Update
-            </label><button type="button">Delete</button>
-            <button>Update</button>
-
-            <label for="gender">gender<input id="gender" type="text" placeholder="Enter detail here"/>
-            </label><button type="button">Delete</button>
-            <button>Update</button>
-
-            <label for="email-address">Email Address<input id="email-address" type="text" placeholder="Enter detail here"/>
-            </label><button type="button">Delete</button>
-            <button>Update</button>
-
-            <label for="phone-number">Phone Number<input id="phone-number" type="text" placeholder="Enter detail here"/>
-            </label><button type="button">Delete</button>
-            <button>Update</button>
-
-            <label for="image">Upload employee image: <input id="file" type="file" name="file" /></label>
-
-            <label for="position">Position<input id="position" type="text" placeholder="Enter detail here"/>
-            </label><button type="button">Delete</button>
-            <button>Update</button>
-
-            <label for="id">ID<input id="id" type="text" placeholder="Enter detail here"/>
-            </label><button type="button">Delete</button>
-            <button>Update</button>
-
-           </fieldset>
-           
-           <fieldset>
-            <form>
-                <input type="search"  id="query" name="q" placeholder='Search ID'/>
-                <button>Search</button>
-
-            </form>
-
-           </fieldset>
-            
+            <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+            <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+            <input type="number" placeholder="age" value={age} onChange={(e) =>  setAge(e.target.value)} />
+            <input type="text" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="text" placeholder="phonenumber" value={PhoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
+            <input type="text" placeholder="position" value={position} onChange={(e) => setPosition(e.target.value)} />
+            <input type="text" placeholder="id" value={id}onChange={(e) => setId(e.target.value)}/>
+            <button onClick={add}>Add Button</button>
 
 
         </div>
     )
 }
 
-export default add;
+export default Add;
