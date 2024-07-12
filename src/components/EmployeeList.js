@@ -37,7 +37,7 @@ function EmployeeList({ employees, onDelete, onEdit }) {
               <td>{employee.position}</td>
               <th>{employee.id}</th>
               <td>
-                <button onClick={() => handleEdit(employee)}>Edit</button>
+                <button onClick={() => handleEdit(employee)}>Update</button>
                 <button onClick={() => handleDelete(employee.id)}>Delete</button>
               </td>
             </tr>
