@@ -10,11 +10,53 @@ function Add (props){
     const [PhoneNumber,setPhoneNumber] =useState("")
     const [position,setPosition] = useState("");
     const [id,setId] = useState("")
+    const [errorMessage, setErrorMessage ] = useState("");
+    
    
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      };
+    
 
+   const validateId = (id) => {
+    const re = /^\d{1,12}$/;
+    return re.test(id);
+    }
+
+    const validatePhoneNumber = (PhoneNumber) => {
+        const re = /^\d{10}$/;
+        return re.test(PhoneNumber);
+      };
 
     const add = () => {
-        props.add(firstName, lastName, age, gender, email,position, PhoneNumber);
+
+        if (!firstName || !lastName ||  !age || !gender || !email || !PhoneNumber || !position || !id) {
+            setErrorMessage("All fields are required");
+            return;
+          }
+
+          if (!validateEmail(email)) {
+            setErrorMessage("Invalid email format");
+            return;
+          }
+
+          if (age < 16 || age > 65) {
+            setErrorMessage("Age must be between 16 and 65");
+            return;
+          }
+
+          if (!validatePhoneNumber(PhoneNumber)) {
+            setErrorMessage("Phone number must be 10 digits");
+            return;
+          }
+      
+          if (!validateId(id)) {
+            setErrorMessage("Employee ID must be between 1 and 12 digits");
+            return;
+          }
+
+        props.add(firstName, lastName, age, gender, email,PhoneNumber, position,id);
         setFirstName("");
         setLastName("");
         setAge("");
@@ -29,9 +71,11 @@ function Add (props){
 
     return(
         <div className="Add employee">
-            <div class="container">
+            <div className="container">
+            {errorMessage && <p className="error">{errorMessage}</p>}
 
             <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+
             <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
             <input type="number" placeholder="age" value={age} onChange={(e) =>  setAge(e.target.value)} />
             <input type="text" placeholder="gender" value={gender} onChange={(e) => setGender(e.target.value)} />
@@ -39,7 +83,8 @@ function Add (props){
             <input type="text" placeholder="phonenumber" value={PhoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/>
             <input type="text" placeholder="position" value={position} onChange={(e) => setPosition(e.target.value)} />
             <input type="text" placeholder="id" value={id}onChange={(e) => setId(e.target.value)}/>
-            <button className="add-button" onClick={add}>Add Button</button>
+      
+            <button className="add-button" onClick={add}>Submit</button>
       <div>
                 <form id="form1" role="search">
                     <input className="search" type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content"/>

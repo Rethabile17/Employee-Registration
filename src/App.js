@@ -3,6 +3,7 @@ import './App.css';
 import Add from "./components/add";
 import EmployeeList from "./components/EmployeeList";
 
+
 function App() {
   const [employee, setEmployee] = useState([]);
 
@@ -30,6 +31,8 @@ function App() {
       },
     ]);
   };
+
+  
 
   const deleteEmployee = (id) => {
     setEmployee((prevEmployees) =>

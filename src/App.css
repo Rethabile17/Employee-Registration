@@ -3,17 +3,13 @@
   padding: 0;
 }
 
-body{
-  background-color: whitesmoke;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-}
-
 .container{
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: 500px;
   align-items: center;
+  background-color: rebeccapurple;
 }
 
 .form1{
@@ -25,10 +21,10 @@ body{
 .search {
   all: unset;
   font: 16px system-ui;
-  color: grey;
-  height: 50%;
-  width: 50%;
-  padding: 6px 10px;
+  color: white;
+  height: 45px;
+  width: 125px;
+  background-color: white;
 }
 
 ::placeholder {
@@ -39,16 +35,18 @@ body{
 button {
   all: unset;
   cursor: pointer;
-  width: 49px;
-  height: 45px;
-  padding-left: 5px;
+  width: 54px;
+  height: 23px;
+  padding-left: 10px;
 }
 
 .svg {
   color: grey;
   fill: currentColor;
   width: 24px;
-  height: 24px;
+  height: 45px;
+  background-color: white;
+  margin-top: 7px;
 }
 
 .employee-list{
@@ -59,21 +57,12 @@ button {
 }
 
 .add-button{
-  color: grey;
-  margin-bottom: 29px;
-  border: 1px solid blue;
+  color: white;
+  margin-bottom: 25px;
+  background-color: green;
   
-  
-
 }
 
-.container{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 500px;
-  align-items: center;
-}
 
 table, tr, td{
   border: 1px solid blue;
@@ -84,7 +73,6 @@ table, tr, td{
 input{
   margin-bottom: 6px;
   padding-left: 5px;
-  border: 1px solid blue;
 
 }
 
