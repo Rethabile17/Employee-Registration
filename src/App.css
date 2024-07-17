@@ -1,19 +1,28 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  height: 750px;
+  justify-content: center;
+  align-items: center;
 }
 
 .container{
-  display: flex;
-  justify-content: center;
+  max-width: 700px;
+  width: 500px;
+  background-color: rgb(69, 51, 235);
+  padding: 100px 47px;
+  display: flex; 
   flex-direction: column;
-  height: 500px;
-  align-items: center;
-  background-color: rgb(80, 70, 53);
 }
+  
 
 .form1{
-  height: 500px;
+  height: 700px;
   display: flex;
   align-items: center;
 }
@@ -22,8 +31,8 @@
   all: unset;
   font: 16px system-ui;
   color: black;
-  height: 45px;
-  width: 125px;
+  height: 50px;
+  width: 250px;
   background-color: white;
 }
 
@@ -53,7 +62,8 @@ button {
   color: black;
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: wheat;
+  border-radius: 0px;
 }
 
 .add-button{
@@ -65,9 +75,10 @@ button {
 
 
 table, tr, td{
-  border: 1px solid blue;
-  width: 100%;
-  background-color: goldenrod;
+  border: 1px solid gold;
+  width: 90%;
+  margin-right: 20px;
+  
 }
 
 input{
