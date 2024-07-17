@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import './App.css';
-import Add from "./components/add";
-import EmployeeList from "./components/EmployeeList";
-
+import "./App.css";
+import Add from "../src/components/add";
+import EmployeeList from "../src/components/EmployeeList";
+import SearchFunction from "../src/components/SearchFunction"; 
 
 function App() {
-  const [employee, setEmployee] = useState([]);
+  const [employees, setEmployees] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const addEmployee = (
     name,
@@ -17,7 +18,7 @@ function App() {
     position,
     id
   ) => {
-    setEmployee((prevEmployees) => [
+    setEmployees((prevEmployees) => [
       ...prevEmployees,
       {
         name,
@@ -32,18 +33,25 @@ function App() {
     ]);
   };
 
-  
-
   const deleteEmployee = (id) => {
-    setEmployee((prevEmployees) =>
+    setEmployees((prevEmployees) =>
       prevEmployees.filter((employee) => employee.id !== id)
     );
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const filteredEmployees = employees.filter((employee) =>
+    employee.id.includes(searchTerm)
+  );
+
   return (
-    <div className='App'>
-      <Add add={addEmployee}/>
-      <EmployeeList employees={employee} onDelete={deleteEmployee} />
+    <div className="App">
+      <Add add={addEmployee} />
+      <EmployeeList employees={filteredEmployees} onDelete={deleteEmployee} />
+      <SearchFunction onSearch={handleSearch} />
     </div>
   );
 }

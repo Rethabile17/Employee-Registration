@@ -1,12 +1,8 @@
 import React from "react";
 
-function EmployeeList({ employees, onDelete, onEdit }) {
+function EmployeeList({ employees, onDelete }) {
   const handleDelete = (id) => {
     onDelete(id);
-  };
-
-  const handleEdit = (employee) => {
-    onEdit(employee);
   };
 
   return (
@@ -17,12 +13,13 @@ function EmployeeList({ employees, onDelete, onEdit }) {
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>age</th>
-            <th>gender</th>
+            <th>Age</th>
+            <th>Gender</th>
             <th>Email</th>
-            <th>PhoneNumber</th>
+            <th>Phone Number</th>
             <th>Position</th>
-            <th>id</th>
+            <th>ID</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -33,11 +30,10 @@ function EmployeeList({ employees, onDelete, onEdit }) {
               <td>{employee.age}</td>
               <td>{employee.gender}</td>
               <td>{employee.email}</td>
-              <th>{employee.phoneNumber}</th>
+              <td>{employee.phoneNumber}</td>
               <td>{employee.position}</td>
-              <th>{employee.id}</th>
+              <td>{employee.id}</td>
               <td>
-                <button onClick={() => handleEdit(employee)}>Update</button>
                 <button onClick={() => handleDelete(employee.id)}>Delete</button>
               </td>
             </tr>
