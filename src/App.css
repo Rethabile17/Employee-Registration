@@ -35,10 +35,6 @@ input, button {
   border-radius: 5px;
 }
 
-input::placeholder {
-  color: #aaa;
-}
-
 button {
   background-color: grey;
   color: white;
@@ -56,18 +52,10 @@ button:hover {
 }
 
 .search input {
-  width: calc(100% - 40px);
+  width: calc(100% - 0px);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.search button {
-  width: 30px;
-  padding: 10px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
 }
 
 .error {
@@ -75,6 +63,7 @@ button:hover {
   margin-bottom: 10px;
   font-size: 14px;
 }
+
 
 .modal {
   position: fixed;

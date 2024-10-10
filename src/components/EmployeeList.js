@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./EmployeeList.css";
 
 function EmployeeList({ employees, onDelete, onUpdate }) {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -37,7 +38,7 @@ function EmployeeList({ employees, onDelete, onUpdate }) {
 
   return (
     <div className="employee-list">
-      <h2>Employee List</h2>
+      <h2 className="employeeList-head">Employee List</h2>
       <table>
         <thead>
           <tr>
@@ -64,10 +65,10 @@ function EmployeeList({ employees, onDelete, onUpdate }) {
               <td>{employee.position}</td>
               <td>{employee.id}</td>
               <td>
-                <button onClick={() => handleDelete(employee.id)}>Delete</button>
+                <button className="employeeList-button-delete" onClick={() => handleDelete(employee.id)}>Delete</button>
               </td>
               <td>
-                <button onClick={() => handleUpdateClick(employee)}>Update</button>
+                <button className="employeeList-button" onClick={() => handleUpdateClick(employee)}>Update</button>
               </td>
             </tr>
           ))}
