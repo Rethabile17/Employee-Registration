@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Add from "../src/components/add";
 import EmployeeList from "../src/components/EmployeeList";
-import SearchFunction from "../src/components/SearchFunction"; 
+import SearchFunction from "../src/components/SearchFunction";
 
 function App() {
   const [employees, setEmployees] = useState([]);
@@ -28,9 +28,17 @@ function App() {
         email,
         phoneNumber,
         position,
-        id
+        id,
       },
     ]);
+  };
+
+  const updateEmployee = (updatedEmployee) => {
+    setEmployees((prevEmployees) =>
+      prevEmployees.map((employee) =>
+        employee.id === updatedEmployee.id ? updatedEmployee : employee
+      )
+    );
   };
 
   const deleteEmployee = (id) => {
@@ -50,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <Add add={addEmployee} />
-      <EmployeeList employees={filteredEmployees} onDelete={deleteEmployee} />
+      <EmployeeList employees={filteredEmployees} onDelete={deleteEmployee} onUpdate={updateEmployee} />
       <SearchFunction onSearch={handleSearch} />
     </div>
   );

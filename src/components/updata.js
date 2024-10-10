@@ -74,7 +74,7 @@ const update = () => {
 
 
     return(
-        <div className="Add employee">
+        <div className="upData employee">
             <div className="container">
               <h1>Add Employee</h1>
             {errorMessage && <p className="error">{errorMessage}</p>}
