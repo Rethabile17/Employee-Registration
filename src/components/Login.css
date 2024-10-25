@@ -1,0 +1,40 @@
+.Login{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    width: 100%; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+.Login-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 25%;
+    height: 50vh;
+  }
+  
+  .Login-modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Login-head{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .Login-error-message{
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }

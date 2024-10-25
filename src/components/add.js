@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Add (props){
     const [firstName, setFirstName] = useState("");
@@ -15,6 +16,8 @@ function Add (props){
 const update = () => {
   
 }
+
+const navigate = useNavigate(); 
     
    
     const validateEmail = (email) => {
@@ -33,48 +36,76 @@ const update = () => {
         return re.test(PhoneNumber);
       };
 
-    const add = () => {
-
-        if (!firstName || !lastName ||  !age || !gender || !email || !PhoneNumber || !position || !id) {
-            setErrorMessage("All fields are required");
-            return;
-          }
-
-          if (!validateEmail(email)) {
-            setErrorMessage("Invalid email format");
-            return;
-          }
-
-          if (age < 16 || age > 65) {
-            setErrorMessage("Age must be between 16 and 65");
-            return;
-          }
-
-          if (!validatePhoneNumber(PhoneNumber)) {
-            setErrorMessage("Phone number must be 10 digits");
-            return;
-          }
+      const add = () => {
+        if (!firstName || !lastName || !age || !gender || !email || !PhoneNumber || !position || !id) {
+          setErrorMessage("All fields are required");
+          return;
+        }
       
-          if (!validateId(id)) {
-            setErrorMessage("Employee ID must be between 1 and 12 digits");
-            return;
-          }
-
-        props.add(firstName, lastName, age, gender, email,PhoneNumber, position,id);
+        if (!validateEmail(email)) {
+          setErrorMessage("Invalid email format");
+          return;
+        }
+      
+        if (age < 16 || age > 65) {
+          setErrorMessage("Age must be between 16 and 65");
+          return;
+        }
+      
+        if (!validatePhoneNumber(PhoneNumber)) {
+          setErrorMessage("Phone number must be 10 digits");
+          return;
+        }
+      
+        if (!validateId(id)) {
+          setErrorMessage("Employee ID must be between 1 and 13 digits");
+          return;
+        }
+      
+        // Retrieve current employees from local storage or create a new array if not found
+        const storedEmployees = JSON.parse(localStorage.getItem("employees")) || [];
+      
+        // Create new employee object
+        const newEmployee = {
+          firstName,
+          lastName,
+          age,
+          gender,
+          email,
+          PhoneNumber,
+          position,
+          id
+        };
+      
+        // Add the new employee to the array
+        storedEmployees.push(newEmployee);
+      
+        // Save the updated employees array to local storage
+        localStorage.setItem("employees", JSON.stringify(storedEmployees));
+      
+        // Clear input fields
         setFirstName("");
         setLastName("");
         setAge("");
-        setGender("")
+        setGender("");
         setEmail("");
-        setPhoneNumber("")
-        setPosition(""); 
-        setId("")
+        setPhoneNumber("");
+        setPosition("");
+        setId("");
       
+        // Reset the error message
+        setErrorMessage("");
+      };
+      
+
+      const handleSubmit = () => {
+
+        navigate("/Login"); 
       };
 
 
     return(
-        <div className="Add employee">
+        <div className="employee">
             <div className="container">
               <h1>Add Employee</h1>
             {errorMessage && <p className="error">{errorMessage}</p>}
@@ -92,6 +123,7 @@ const update = () => {
             <button className="add-button" onClick={add}>Submit</button>
      
             </div>
+          
         </div>
     )
 }

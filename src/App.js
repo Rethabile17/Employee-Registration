@@ -1,65 +1,21 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Add from "../src/components/add";
-import EmployeeList from "../src/components/EmployeeList";
-import SearchFunction from "../src/components/SearchFunction";
+import Showall from "./components/Showall";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
-  const [employees, setEmployees] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
-  const addEmployee = (
-    name,
-    lastName,
-    age,
-    gender,
-    email,
-    phoneNumber,
-    position,
-    id
-  ) => {
-    setEmployees((prevEmployees) => [
-      ...prevEmployees,
-      {
-        name,
-        lastName,
-        age,
-        gender,
-        email,
-        phoneNumber,
-        position,
-        id,
-      },
-    ]);
-  };
-
-  const updateEmployee = (updatedEmployee) => {
-    setEmployees((prevEmployees) =>
-      prevEmployees.map((employee) =>
-        employee.id === updatedEmployee.id ? updatedEmployee : employee
-      )
-    );
-  };
-
-  const deleteEmployee = (id) => {
-    setEmployees((prevEmployees) =>
-      prevEmployees.filter((employee) => employee.id !== id)
-    );
-  };
-
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-  };
-
-  const filteredEmployees = employees.filter((employee) =>
-    employee.id.includes(searchTerm)
-  );
 
   return (
     <div className="App">
-      <Add add={addEmployee} />
-      <EmployeeList employees={filteredEmployees} onDelete={deleteEmployee} onUpdate={updateEmployee} />
-      <SearchFunction onSearch={handleSearch} />
+      <Routes>
+        <Route path="/" element={<Showall/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/Login" element={<Login/>}/>
+      </Routes>
+     
     </div>
   );
 }
