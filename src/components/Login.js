@@ -45,6 +45,7 @@ function Login() {
 
   return (
     <div className="Login">
+      <h1>Employee app</h1>
       <div className="Login-modal">
         <div className="Login-modal-content">
           <h3 className="Login-head">Login</h3>
