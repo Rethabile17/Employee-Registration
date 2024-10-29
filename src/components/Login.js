@@ -24,20 +24,20 @@ function Login() {
       return;
     }
   
-    // Retrieve user data from local storage
+    
     const storedUser = JSON.parse(localStorage.getItem("user"));
   
     if (storedUser) {
-      // Check if the entered email and password match the stored credentials
+      
       if (storedUser.email === email && storedUser.password === password) {
-        // Successful login
+        
         navigate("/");
       } else {
-        // Display error message if credentials don't match
+        
         setErrorMessage("Invalid email or password");
       }
     } else {
-      // Display error if no user is found in local storage
+      
       setErrorMessage("User not found. Please register first.");
     }
   };

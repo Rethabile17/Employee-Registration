@@ -34,7 +34,7 @@ function Register() {
       password,
     };
   
-    localStorage.setItem("user", JSON.stringify(user)); // Save user data to local storage
+    localStorage.setItem("user", JSON.stringify(user)); 
     navigate("/Login");
   };
   

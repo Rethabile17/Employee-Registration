@@ -62,10 +62,10 @@ const navigate = useNavigate();
           return;
         }
       
-        // Retrieve current employees from local storage or create a new array if not found
+      
         const storedEmployees = JSON.parse(localStorage.getItem("employees")) || [];
       
-        // Create new employee object
+        
         const newEmployee = {
           firstName,
           lastName,
@@ -77,13 +77,13 @@ const navigate = useNavigate();
           id
         };
       
-        // Add the new employee to the array
+        
         storedEmployees.push(newEmployee);
       
-        // Save the updated employees array to local storage
+        
         localStorage.setItem("employees", JSON.stringify(storedEmployees));
       
-        // Clear input fields
+        
         setFirstName("");
         setLastName("");
         setAge("");
@@ -93,7 +93,7 @@ const navigate = useNavigate();
         setPosition("");
         setId("");
       
-        // Reset the error message
+        
         setErrorMessage("");
       };
       

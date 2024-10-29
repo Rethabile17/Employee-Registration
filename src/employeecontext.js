@@ -6,13 +6,13 @@ export function EmployeeProvider({ children }) {
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Retrieve from local storage on initial load
+  
   useEffect(() => {
     const storedEmployees = JSON.parse(localStorage.getItem("employees")) || [];
     setEmployees(storedEmployees);
   }, []);
 
-  // Save to local storage on change
+  
   useEffect(() => {
     localStorage.setItem("employees", JSON.stringify(employees));
   }, [employees]);

@@ -1,4 +1,4 @@
-// Showall.js
+
 import React, { useState, useEffect } from "react";
 import Add from "../components/add";
 import EmployeeList from "./EmployeeList";
@@ -9,7 +9,7 @@ const Showall = () => {
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Load employees from local storage when the component mounts
+  
   useEffect(() => {
     const storedEmployees = localStorage.getItem("employees");
     if (storedEmployees) {
@@ -17,7 +17,7 @@ const Showall = () => {
     }
   }, []);
 
-  // Save employees to local storage whenever the employees array changes
+  
   const saveEmployeesToLocalStorage = (employees) => {
     localStorage.setItem("employees", JSON.stringify(employees));
   };
